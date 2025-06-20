@@ -1,841 +1,507 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Mind Building Youth Care Foundation</title>
-<link rel="icon" href="f.png" type="image/png" />
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+<link rel="icon" href="f.png" type="image/png">
 <style>
-  :root {
-    --indigo: #4B0082;
-    --dark-brown: #6B3F18;
-    --light-brown: #A0522D;
-    --white: #fff;
-    --black: #181818;
-    --gray-light: #f7f6f3;
-    --gray-medium: #eae7e3;
-    --gray-dark: #232323;
-    --transition: 0.3s;
-    --whatsapp: #25D366;
-    --facebook: #1877f3;
-    --instagram: #e1306c;
-  }
-  * {
-    box-sizing: border-box;
-  }
-  body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #fff 70%, #f7ede2 100%);
-    color: var(--dark-brown);
-    transition: background var(--transition), color var(--transition);
-  }
-  body.dark {
-    background: linear-gradient(135deg, var(--gray-dark) 70%, #3a2c21 100%);
-    color: var(--white);
-  }
-  a {
-    color: var(--indigo);
-    transition: color var(--transition);
-    text-decoration: none;
-  }
-  a:hover,
-  a:focus {
-    color: var(--light-brown);
-    text-decoration: underline;
-  }
-  header {
-    position: sticky;
-    top: 0;
-    background: var(--white);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 1.5rem;
-    box-shadow: 0 2px 8px rgba(160, 82, 45, 0.08);
-    z-index: 1000;
-    transition: background var(--transition);
-  }
-  body.dark header {
-    background: var(--gray-dark);
-  }
-  .logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--indigo);
-    user-select: none;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  .logo .icon {
-    color: var(--light-brown);
-    font-size: 1.8rem;
-  }
-  body.dark .logo {
-    color: var(--light-brown);
-  }
-  nav {
-    display: flex;
-    gap: 1.2rem;
-    align-items: center;
-  }
-  nav a {
-    font-weight: 600;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    color: var(--dark-brown);
-    background: transparent;
-    transition: background var(--transition), color var(--transition);
-  }
-  nav a.active,
-  nav a:hover,
-  nav a:focus {
-    background-color: var(--light-brown);
-    color: var(--white);
-  }
-  body.dark nav a {
-    color: #fff;
-  }
-  body.dark nav a.active,
-  body.dark nav a:hover,
-  body.dark nav a:focus {
-    background-color: var(--indigo);
-    color: var(--white);
-  }
-  .toggle-btn {
-    background: none;
-    border: 2px solid var(--dark-brown);
-    color: var(--dark-brown);
-    border-radius: 6px;
-    padding: 0.3rem 0.8rem;
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 1.1rem;
-    transition: background var(--transition), color var(--transition), border-color var(--transition);
-  }
-  .toggle-btn:hover,
-  .toggle-btn:focus {
-    background-color: var(--light-brown);
-    color: var(--white);
-    border-color: var(--light-brown);
-  }
-  body.dark .toggle-btn {
-    border-color: var(--light-brown);
-    color: var(--light-brown);
-  }
-  body.dark .toggle-btn:hover,
-  body.dark .toggle-btn:focus {
-    background-color: var(--indigo);
-    color: var(--white);
-  }
+:root {
+  --indigo: #4B0082;
+  --dark-brown: #6B3F18;
+  --light-brown: #A0522D;
+  --white: #fff;
+  --black: #181818;
+  --gray-light: #f7f6f3;
+  --gray-medium: #eae7e3;
+  --gray-dark: #232323;
+  --transition: 0.3s;
+  --whatsapp: #25D366;
+  --facebook: #1877f3;
+  --instagram: #e1306c;
+}
+* {
+  box-sizing: border-box;
+  cursor: url('data:image/svg+xml;utf8,<svg fill="%236B3F18" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M2 2 L22 12 L2 22 Z"/></svg>') 4 0, auto;
+}
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #fff 70%, #f7ede2 100%);
+  color: var(--dark-brown);
+  transition: background var(--transition), color var(--transition);
+}
+body.dark {
+  background: linear-gradient(135deg, #232323 70%, #3a2c21 100%);
+  color: #fff;
+}
+a { color: var(--indigo); transition: color var(--transition); }
+a:hover { color: var(--light-brown); text-decoration: underline; }
+header {
+  position: sticky; top: 0; background: var(--white);
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 2rem; box-shadow: 0 2px 8px rgba(160, 82, 45, 0.08); z-index: 1000;
+  transition: background var(--transition);
+}
+body.dark header { background: var(--gray-dark); }
+.logo {
+  font-size: 1.5rem; font-weight: 700; color: var(--indigo); user-select: none;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.logo .icon { color: var(--light-brown); font-size: 1.8rem; }
+body.dark .logo { color: var(--light-brown); }
+nav { display: flex; gap: 1.5rem; align-items: center; }
+nav a {
+  font-weight: 600; padding: 0.5rem 1rem; border-radius: 6px;
+  color: var(--dark-brown); background: transparent;
+  transition: background var(--transition), color var(--transition);
+}
+nav a.active, nav a:hover {
+  background-color: var(--light-brown); color: var(--white);
+}
+body.dark nav a { color: #fff; }
+body.dark nav a.active, body.dark nav a:hover {
+  background-color: var(--indigo); color: var(--white);
+}
+.toggle-btn {
+  background: none; border: 2px solid var(--dark-brown); color: var(--dark-brown);
+  border-radius: 6px; padding: 0.3rem 0.8rem; cursor: pointer;
+  font-weight: 700; font-size: 1.1rem;
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+}
+.toggle-btn:hover {
+  background-color: var(--light-brown); color: var(--white); border-color: var(--light-brown);
+}
+body.dark .toggle-btn {
+  border-color: var(--light-brown); color: var(--light-brown);
+}
+body.dark .toggle-btn:hover {
+  background-color: var(--indigo); color: var(--white);
+}
+main { max-width: 1100px; margin: 3rem auto 4rem; padding: 0 1rem; }
+#home {
+  background: linear-gradient(120deg, #fff 60%, #f7ede2 100%);
+  border-radius: 15px; padding: 5rem 2rem 3rem; color: var(--dark-brown);
+  text-align: center; box-shadow: 0 8px 20px rgba(160, 82, 45, 0.06); position: relative;
+}
+body.dark #home {
+  background: linear-gradient(120deg, #232323 60%, #3a2c21 100%);
+  color: #fff;
+}
+#home h1 {
+  font-size: 2.7rem; margin-bottom: 1rem; color: var(--dark-brown);
+  text-shadow: 0 2px 8px rgba(160,82,45,0.05);
+}
+body.dark #home h1 { color: var(--light-brown); }
+#home p {
+  font-size: 1.25rem; max-width: 700px; margin: 0 auto 2rem;
+  color: var(--dark-brown);
+}
+body.dark #home p { color: #fff; }
+#home .btn-group {
+  display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;
+}
+   .btn {
+background-color: var(--light-brown); color: var(--white); font-weight: 700;
+padding: 1rem 2.5rem; border-radius: 50px; border: none; cursor: pointer;
+font-size: 1.1rem; box-shadow: 0 4px 12px rgba(160, 82, 45, 0.08);
+text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;
+transition: background var(--transition), color var(--transition), box-shadow var(--transition);
+}
+.btn:hover {
+background-color: var(--indigo); color: var(--white);
+box-shadow: 0 6px 18px rgba(75, 0, 130, 0.1);
+}
+h2.section-title {
+font-size: 2.1rem; margin-bottom: 1rem; color: var(--dark-brown);
+border-bottom: 3px solid var(--light-brown); padding-bottom: 0.3rem; max-width: max-content;
+}
+body.dark h2.section-title { color: var(--light-brown); border-color: var(--indigo); }
+section.card-section {
+background: var(--gray-light); border-radius: 15px; margin-bottom: 2.5rem;
+box-shadow: 0 4px 16px rgba(160, 82, 45, 0.07); padding: 2rem 1.2rem;
+color: var(--black);
+}
+body.dark section.card-section {
+background: var(--gray-dark); color: #fff;
+}
+#about ul {
+font-size: 1.07rem; line-height: 1.7; max-width: 900px; margin: 0 auto 1.5rem;
+list-style: disc inside; padding-left: 0;
+}
+#about ul li { margin-bottom: 0.7rem; }
+.profile {
+display: flex; max-width: 900px; margin: 2rem auto 0; gap: 2rem; align-items: center;
+flex-wrap: wrap; background: var(--gray-light); border-radius: 12px; padding: 1.5rem 2rem;
+box-shadow: 0 4px 14px rgba(160, 82, 45, 0.10);
+}
+body.dark .profile { background: #232323; color: #fff; }
+.profile-img {
+width: 140px; height: 140px; border-radius: 50%; object-fit: cover;
+border: 4px solid var(--indigo); box-shadow: 0 0 12px var(--indigo); flex-shrink: 0;
+}
+body.dark .profile-img { border-color: var(--light-brown); box-shadow: 0 0 12px var(--light-brown); }
+.profile-details h3 {
+margin-top: 0; margin-bottom: 0.3rem; font-size: 1.6rem; color: var(--indigo);
+}
+body.dark .profile-details h3 { color: var(--light-brown); }
+.profile-details p { margin: 0.3rem 0; font-size: 1.05rem; line-height: 1.5; }
+#programs .program-cards {
+display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1100px; margin: 0 auto;
+}
+.program-card {
+background: var(--gray-light); padding: 1.8rem 1.5rem; border-radius: 15px;
+box-shadow: 0 6px 20px rgba(160, 82, 45, 0.10); display: flex; flex-direction: column; justify-content: space-between;
+color: var(--black);
+}
+body.dark .program-card {
+background: var(--gray-dark); color: #fff;
+}
+.program-card h3 {
+margin-top: 0; color: var(--dark-brown); font-size: 1.25rem; margin-bottom: 0.8rem;
+}
+body.dark .program-card h3 { color: var(--light-brown); }
+.program-card p {
+flex-grow: 1; font-size: 1rem; line-height: 1.5; color: var(--black);
+}
+body.dark .program-card p { color: #fff; }
+.program-card img {
+border-radius: 12px; margin-bottom: 1rem; width: 100%; height: 140px; object-fit: cover;
+}
+#contact { max-width: 700px; margin: 0 auto; }
+#contact .contact-info p { font-size: 1.1rem; margin: 0.5rem 0; }
+#contact .contact-info a { font-weight: 600; word-break: break-all; }
+.contact-form {
+margin-top: 1.5rem; display: flex; flex-direction: column; gap: 1rem;
+}
+.contact-form label { font-weight: 600; font-size: 1rem; }
+.contact-form input, .contact-form textarea {
+padding: 0.8rem 1rem; border-radius: 8px; border: 2px solid var(--gray-medium);
+font-size: 1rem; resize: vertical; background: var(--white); color: var(--black);
+transition: border-color 0.3s;
+}
+body.dark .contact-form input, body.dark .contact-form textarea {
+background: var(--gray-dark); color: #fff; border-color: #555;
+}
+.contact-form input:focus, .contact-form textarea:focus { border-color: var(--indigo); outline: none; }
+.contact-form button {
+background-color: var(--light-brown); color: var(--white); font-weight: 700;
+padding: 1rem 2rem; border: none; border-radius: 50px; cursor: pointer;
+font-size: 1.1rem; transition: background-color 0.3s; align-self: flex-start;
+box-shadow: 0 4px 14px rgba(160, 82, 45, 0.15);
+}
+.contact-form button:hover { background-color: var(--indigo); }
+#donate { text-align: center; max-width: 800px; margin: 0 auto; }
+#donate h2 { font-size: 2.1rem; margin-bottom: 1rem; color: var(--dark-brown); }
+body.dark #donate h2 { color: var(--light-brown); }
+#donate p { font-size: 1.15rem; margin-bottom: 2rem; line-height: 1.6; }
+.donate-methods {
+display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 2rem;
+}
+.donate-card {
+background: var(--gray-light); padding: 1.5rem 1.2rem; border-radius: 15px;
+box-shadow: 0 6px 20px rgba(160, 82, 45, 0.10); width: 320px; word-break: break-word;
+color: var(--black); display: flex; flex-direction: column; align-items: flex-start;
+}
+  body.dark .donate-card { background: var(--gray-dark); color: #fff; }
+.donate-card h3 { margin-top: 0; color: var(--indigo); margin-bottom: 1rem; }
+body.dark .donate-card h3 { color: var(--light-brown); }
+.donate-card p { font-size: 1rem; line-height: 1.5; color: var(--black); }
+body.dark .donate-card p { color: #fff; }
+#donate .btn-contact {
+background-color: var(--light-brown); color: var(--white); font-weight: 700;
+padding: 1rem 2.5rem; border: none; border-radius: 50px; cursor: pointer;
+font-size: 1.15rem; box-shadow: 0 4px 14px rgba(160, 82, 45, 0.13);
+text-decoration: none; display: inline-block; transition: background-color 0.3s;
+}
+#donate .btn-contact:hover { background-color: var(--indigo); }
+footer {
+background: var(--white); color: #666; text-align: center;
+padding: 1.5rem 1rem; border-top: 1px solid var(--gray-medium); font-size: 0.9rem; user-select: none;
+}
+body.dark footer { background: #232323; color: #ccc; border-top: 1px solid #444; }
+.social-float {
+position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column;
+gap: 15px; z-index: 1100;
+}
+.social-float a {
+width: 56px; height: 56px; border-radius: 50%; display: flex; justify-content: center;
+align-items: center; color: white; font-size: 28px; line-height: 1; box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+transition: background 0.3s, box-shadow 0.3s;
+}
+.social-float .whatsapp { background: var(--whatsapp);}
+.social-float .facebook { background: var(--facebook);}
+.social-float .instagram { background: linear-gradient(45deg, #f9ce34 0%, #ee2a7b 50%, #6228d7 100%);}
+.social-float a:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.22);}
+@media (max-width: 768px) {
+#home h1 { font-size: 2.2rem; }
+#home p { font-size: 1.1rem; }
+.profile { flex-direction: column; text-align: center; }
+.profile-details h3 { font-size: 1.4rem; }
+.program-card { padding: 1.2rem 1rem; }
+.donate-methods { flex-direction: column; gap: 1.5rem; }
+nav { gap: 1rem; }
 
-  /* Hamburger menu */
-  #hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 5px;
-    width: 28px;
-    height: 22px;
-  }
-  #hamburger span {
-    height: 4px;
-    background: var(--dark-brown);
-    border-radius: 2px;
-    transition: 0.3s;
-  }
-  body.dark #hamburger span {
-    background: var(--light-brown);
-  }
-  nav.mobile-hidden {
-    display: none !important;
-  }
+/* Responsive improvements */
+@media (max-width: 992px) {
+main {
+padding: 0 1rem;
+}
+#home h1 {
+font-size: 2.4rem;
+}
+#home p {
+font-size: 1.15rem;
+}
+.btn-group {
+flex-direction: column;
+gap: 1rem;
+}
+nav {
+flex-wrap: wrap;
+gap: 1rem;
+}
+nav a {
+padding: 0.6rem 1rem;
+font-size: 1rem;
+}
+.profile {
+flex-direction: column;
+text-align: center;
+}
+.profile-img {
+margin: 0 auto;
+}
+.profile-details {
+width: 100%;
+}
+.program-card img {
+height: auto;
+max-height: 180px;
+}
+.program-cards {
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.donate-methods {
+flex-direction: column;
+gap: 1.5rem;
+}
+.donate-card {
+width: 100%;
+}
+.contact-form input,
+.contact-form textarea {
+font-size: 1rem;
+}
+.contact-form button {
+width: 100%;
+font-size: 1.15rem;
+}
+}
 
-  main {
-    max-width: 1100px;
-    margin: 3rem auto 4rem;
-    padding: 0 1rem;
-  }
-  #home {
-    background: linear-gradient(120deg, #fff 60%, #f7ede2 100%);
-    border-radius: 15px;
-    padding: 5rem 2rem 3rem;
-    color: var(--dark-brown);
-    text-align: center;
-    box-shadow: 0 8px 20px rgba(160, 82, 45, 0.06);
-    position: relative;
-  }
-  body.dark #home {
-    background: linear-gradient(120deg, var(--gray-dark) 60%, #3a2c21 100%);
-    color: #fff;
-  }
-  #home h1 {
-    font-size: 2.7rem;
-    margin-bottom: 1rem;
-    color: var(--dark-brown);
-    text-shadow: 0 2px 8px rgba(160, 82, 45, 0.05);
-  }
-  body.dark #home h1 {
-    color: var(--light-brown);
-  }
-  #home p {
-    font-size: 1.25rem;
-    max-width: 700px;
-    margin: 0 auto 2rem;
-    color: var(--dark-brown);
-  }
-  body.dark #home p {
-    color: #fff;
-  }
-  #home .btn-group {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-  }
-  .btn {
-    background-color: var(--light-brown);
-    color: var(--white);
-    font-weight: 700;
-    padding: 1rem 2.5rem;
-    border-radius: 50px;
-    border: none;
-    cursor: pointer;
-    font-size: 1.1rem;
-    box-shadow: 0 4px 12px rgba(160, 82, 45, 0.08);
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: background var(--transition), color var(--transition), box-shadow var(--transition);
-  }
-  .btn:hover,
-  .btn:focus {
-    background-color: var(--indigo);
-    color: var(--white);
-    box-shadow: 0 6px 18px rgba(75, 0, 130, 0.1);
-  }
-  h2.section-title {
-    font-size: 2.1rem;
-    margin-bottom: 1rem;
-    color: var(--dark-brown);
-    border-bottom: 3px solid var(--light-brown);
-    padding-bottom: 0.3rem;
-    max-width: max-content;
-  }
-  body.dark h2.section-title {
-    color: var(--light-brown);
-    border-color: var(--indigo);
-  }
-  section.card-section {
-    background: var(--gray-light);
-    border-radius: 15px;
-    margin-bottom: 2.5rem;
-    box-shadow: 0 4px 16px rgba(160, 82, 45, 0.07);
-    padding: 2rem 1.2rem;
-    color: var(--black);
-  }
-  body.dark section.card-section {
-    background: var(--gray-dark);
-    color: #fff;
-  }
-  #about ul {
-    font-size: 1.07rem;
-    line-height: 1.7;
-    max-width: 900px;
-    margin: 0 auto 1.5rem;
-    list-style: disc inside;
-    padding-left: 0;
-  }
-  #about ul li {
-    margin-bottom: 0.7rem;
-  }
-  .profile {
-    display: flex;
-    max-width: 900px;
-    margin: 2rem auto 0;
-    gap: 2rem;
-    align-items: center;
-    flex-wrap: wrap;
-    background: var(--gray-light);
-    border-radius: 12px;
-    padding: 1.5rem 2rem;
-    box-shadow: 0 4px 14px rgba(160, 82, 45, 0.10);
-  }
-  body.dark .profile {
-    background: #232323;
-    color: #fff;
-  }
-  .profile-img {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid var(--indigo);
-    box-shadow: 0 0 12px var(--indigo);
-    flex-shrink: 0;
-  }
-  body.dark .profile-img {
-    border-color: var(--light-brown);
-    box-shadow: 0 0 12px var(--light-brown);
-  }
-  .profile-details h3 {
-    margin-top: 0;
-    margin-bottom: 0.3rem;
-    font-size: 1.6rem;
-    color: var(--indigo);
-  }
-  body.dark .profile-details h3 {
-    color: var(--light-brown);
-  }
-  .profile-details p {
-    margin: 0.3rem 0;
-    font-size: 1.05rem;
-    line-height: 1.5;
-  }
-  #programs .program-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-  .program-card {
-    background: var(--gray-light);
-    padding: 1.8rem 1.5rem;
-    border-radius: 15px;
-    box-shadow: 0 6px 20px rgba(160, 82, 45, 0.10);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    color: var(--black);
-    transition: background var(--transition), color var(--transition);
-  }
-  body.dark .program-card {
-    background: var(--gray-dark);
-    color: #fff;
-  }
-  .program-card h3 {
-    margin-top: 0;
-    color: var(--dark-brown);
-    font-size: 1.25rem;
-    margin-bottom: 0.8rem;
-  }
-  body.dark .program-card h3 {
-    color: var(--light-brown);
-  }
-  .program-card p {
-    flex-grow: 1;
-    font-size: 1rem;
-    line-height: 1.5;
-    color: var(--black);
-  }
-  body.dark .program-card p {
-    color: #fff;
-  }
-  .program-card img {
-    border-radius: 12px;
-    margin-bottom: 1rem;
-    width: 100%;
-    height: 140px;
-    object-fit: cover;
-  }
-  #contact {
-    max-width: 700px;
-    margin: 0 auto;
-  }
-  #contact .contact-info p {
-    font-size: 1.1rem;
-    margin: 0.5rem 0;
-  }
-  #contact .contact-info a {
-    font-weight: 600;
-    word-break: break-word;
-  }
-  .contact-form {
-    margin-top: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  .contact-form label {
-    font-weight: 600;
-    font-size: 1rem;
-  }
-  .contact-form input,
-  .contact-form textarea {
-    padding: 0.8rem 1rem;
-    border-radius: 8px;
-    border: 2px solid var(--gray-medium);
-    font-size: 1rem;
-    resize: vertical;
-    background: var(--white);
-    color: var(--black);
-    transition: border-color 0.3s;
-  }
-  body.dark .contact-form input,
-  body.dark .contact-form textarea {
-    background: var(--gray-dark);
-    color: #fff;
-    border-color: #555;
-  }
-  .contact-form input:focus,
-  .contact-form textarea:focus {
-    border-color: var(--indigo);
-    outline: none;
-  }
-  .contact-form button {
-    background-color: var(--light-brown);
-    color: var(--white);
-    font-weight: 700;
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    font-size: 1.1rem;
-    transition: background-color 0.3s;
-    align-self: flex-start;
-    box-shadow: 0 4px 14px rgba(160, 82, 45, 0.15);
-  }
-  .contact-form button:hover,
-  .contact-form button:focus {
-    background-color: var(--indigo);
-  }
-  #donate {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  #donate h2 {
-    font-size: 2.1rem;
-    margin-bottom: 1rem;
-    color: var(--dark-brown);
-  }
-  body.dark #donate h2 {
-    color: var(--light-brown);
-  }
-  #donate p {
-    font-size: 1.15rem;
-    margin-bottom: 2rem;
-    line-height: 1.6;
-  }
-  .donate-methods {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    margin-bottom: 2rem;
-  }
-  .donate-card {
-    background: var(--gray-light);
-    padding: 1.5rem 1.2rem;
-    border-radius: 15px;
-    box-shadow: 0 6px 20px rgba(160, 82, 45, 0.10);
-    width: 320px;
-    word-break: break-word;
-    color: var(--black);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    transition: background var(--transition), color var(--transition);
-  }
-  body.dark .donate-card {
-    background: var(--gray-dark);
-    color: #fff;
-  }
-  .donate-card h3 {
-    margin-top: 0;
-    color: var(--indigo);
-    margin-bottom: 1rem;
-  }
-  body.dark .donate-card h3 {
-    color: var(--light-brown);
-  }
-  .donate-card p {
-    font-size: 1rem;
-    line-height: 1.5;
-    color: var(--black);
-  }
-  body.dark .donate-card p {
-    color: #fff;
-  }
-  #donate .btn-contact {
-    background-color: var(--light-brown);
-    color: var(--white);
-    font-weight: 700;
-    padding: 1rem 2.5rem;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    font-size: 1.15rem;
-    box-shadow: 0 4px 14px rgba(160, 82, 45, 0.13);
-    text-decoration: none;
-    display: inline-block;
-    transition: background-color 0.3s;
-  }
-  #donate .btn-contact:hover,
-  #donate .btn-contact:focus {
-    background-color: var(--indigo);
-  }
-  footer {
-    background: var(--white);
-    color: #666;
-    text-align: center;
-    padding: 1.5rem 1rem;
-    border-top: 1px solid var(--gray-medium);
-    font-size: 0.9rem;
-    user-select: none;
-  }
-  body.dark footer {
-    background: var(--gray-dark);
-    color: #ccc;
-    border-top: 1px solid #444;
-  }
-  .social-float {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    z-index: 1100;
-  }
-  .social-float a {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 28px;
-    line-height: 1;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    transition: background 0.3s, box-shadow 0.3s;
-  }
-  .social-float .whatsapp {
-    background: var(--whatsapp);
-  }
-  .social-float .facebook {
-    background: var(--facebook);
-  }
-  .social-float .instagram {
-    background: linear-gradient(45deg, #f9ce34 0%, #ee2a7b 50%, #6228d7 100%);
-  }
-  .social-float a:hover,
-  .social-float a:focus {
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22);
-  }
+@media (max-width: 576px) {
+#home h1 {
+font-size: 2rem;
+}
+#home p {
+font-size: 1rem;
+}
+nav {
+justify-content: center;
+}
+nav a {
+padding: 0.5rem 0.8rem;
+font-size: 0.95rem;
+}
+.btn {
+width: 100%;
+justify-content: center;
+}
+.profile {
+padding: 1rem;
+}
+.program-card {
+padding: 1rem;
+}
+}
 
-  /* Responsive styles */
-  @media (max-width: 992px) {
-    main {
-      padding: 0 1rem;
-    }
-    #home h1 {
-      font-size: 2.4rem;
-    }
-    #home p {
-      font-size: 1.15rem;
-    }
-    .btn-group {
-      flex-direction: column;
-      gap: 1rem;
-    }
-    nav {
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    nav a {
-      padding: 0.6rem 1rem;
-      font-size: 1rem;
-    }
-    .profile {
-      flex-direction: column;
-      text-align: center;
-    }
-    .profile-img {
-      margin: 0 auto;
-    }
-    .profile-details {
-      width: 100%;
-    }
-    .program-card img {
-      height: auto;
-      max-height: 180px;
-    }
-    .program-cards {
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
-    .donate-methods {
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-    .donate-card {
-      width: 100%;
-    }
-    .contact-form input,
-    .contact-form textarea {
-      font-size: 1rem;
-    }
-    .contact-form button {
-      width: 100%;
-      font-size: 1.15rem;
-    }
-  }
-  @media (max-width: 768px) {
-    #home h1 {
-      font-size: 2.2rem;
-    }
-    #home p {
-      font-size: 1.1rem;
-    }
-    .profile {
-      flex-direction: column;
-      text-align: center;
-    }
-    .profile-details h3 {
-      font-size: 1.4rem;
-    }
-    .program-card {
-      padding: 1.2rem 1rem;
-    }
-    .donate-methods {
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-    nav {
-      gap: 1rem;
-    }
-  }
-  @media (max-width: 576px) {
-    #home h1 {
-      font-size: 2rem;
-    }
-    #home p {
-      font-size: 1rem;
-    }
-    nav {
-      justify-content: center;
-    }
-    nav a {
-      padding: 0.5rem 0.8rem;
-      font-size: 0.95rem;
-    }
-    .btn {
-      width: 100%;
-      justify-content: center;
-    }
-    .profile {
-      padding: 1rem;
-    }
-    .program-card {
-      padding: 1rem;
-    }
-  }
+}
 </style>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
 </head>
 <body>
 <header>
-  <div class="logo" aria-label="The Mind Building Youth Care Foundation logo">
-    <span class="icon" aria-hidden="true">🧠</span>
-    The Mind Building <span style="color: var(--light-brown); margin-left: 0.3rem;">Youth Care Foundation</span>
-  </div>
-  <div id="hamburger" tabindex="0" aria-label="Toggle navigation menu" role="button" aria-expanded="false">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-  <nav role="navigation" aria-label="Primary navigation" class="mobile-hidden">
-    <a href="#home" class="active" aria-current="page">Home</a>
-    <a href="#about">About Us</a>
-    <a href="#programs">Our Programs</a>
-    <a href="#contact">Contact</a>
-    <a href="#donate">Donate</a>
-    <button class="toggle-btn" id="toggleMode" aria-label="Toggle dark mode">🌞</button>
-  </nav>
+<div class="logo" aria-label="The Mind Building Youth Care Foundation logo">
+<span class="icon" aria-hidden="true">🧠</span>
+The Mind Building <span style="color: var(--light-brown); margin-left: 0.3rem;">Youth Care Foundation</span>
+</div>
+<nav role="navigation" aria-label="Primary navigation">
+<a href="#home" class="active" aria-current="page">Home</a>
+<a href="#about">About Us</a>
+<a href="#programs">Our Programs</a>
+<a href="#contact">Contact</a>
+<a href="#donate">Donate</a>
+<button class="toggle-btn" id="toggleMode" aria-label="Toggle dark mode">🌞</button>
+</nav>
 </header>
 <main>
-  <section id="home">
-    <h1>Welcome to The Mind Building Youth Care Foundation</h1>
-    <p>
-      Empowering the youth of Suleja, Abuja, Nigeria to build brighter futures through education, mentorship, and care.
-    </p>
-    <div class="btn-group">
-      <a href="#donate" class="btn">Donate Now <i class="fa-solid fa-hand-holding-heart"></i></a>
-      <a href="#programs" class="btn">Our Programs <i class="fa-solid fa-people-group"></i></a>
-    </div>
-  </section>
-  <section id="about" class="card-section">
-    <h2 class="section-title">About Us</h2>
-    <p>
-      <strong>The Mind Building Youth Care Foundation</strong> is a non-profit organization located in Suleja, Abuja, Nigeria. Our mission is to nurture and empower young minds by providing support, education, and opportunities for youth to realize their full potential.
-    </p>
-    <ul>
-      <li>Founded by <strong>Mrs. Sarah Eseyi Oriowo</strong>, a passionate advocate for youth development.</li>
-      <li>Supported by her husband, <strong>Mr. Seun Oriowo</strong>.</li>
-      <li>Driven by the belief that every young person deserves a chance to succeed.</li>
-      <li>Committed to fostering a future where every youth is equipped with knowledge, skills, and confidence.</li>
-    </ul>
-    <div class="profile">
-      <img src="s.jpg" alt="Portrait of Mrs. Sarah Eseyi Oriowo" class="profile-img" loading="lazy" />
-      <div class="profile-details">
-        <h3>Mrs. Sarah Eseyi Oriowo</h3>
-        <p><strong>Chief Executive Officer (CEO) & Founder</strong><br />Married to Mr. Seun Oriowo</p>
-        <p>
-          Mrs. Sarah is dedicated to youth empowerment and community development. Her vision is to create a support system where young people can thrive, learn, and lead.
-        </p>
-      </div>
-    </div>
-  </section>
-  <section id="programs" class="card-section">
-    <h2 class="section-title">Our Programs</h2>
-    <div class="program-cards">
-      <article class="program-card">
-        <img src="https://womenfirstjobs.com/upload/blog/1700222448Blog-Picture-(500-x-350-px).png" alt="Mentorship" loading="lazy" />
-        <h3>Mentorship Initiatives</h3>
-        <p>
-          Pairing youth with experienced mentors to guide their personal and professional growth. Our mentorship programs focus on leadership, career guidance, and life skills.
-        </p>
-      </article>
-      <article class="program-card">
-        <img src="https://madison365.com/wp-content/uploads/2016/01/africanamericancaregiver.jpg" alt="Caregivers Outreach" loading="lazy" />
-        <h3>Caregivers Outreach</h3>
-        <p>
-          We support caregivers and families with resources, training, and emotional support to help them provide the best care for youth in need.
-        </p>
-      </article>
-      <article class="program-card">
-        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80" alt="Widows Visitation" loading="lazy" />
-        <h3>Widows Visitation</h3>
-        <p>
-          Regular seminars and bootcamps on entrepreneurship, digital literacy, and self-confidence, tailored to inspire and equip our youth for the future.
-        </p>
-      </article>
-      <article class="program-card">
-        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=400&q=80" alt="Educational Support" loading="lazy" />
-        <h3>Educational Support</h3>
-        <p>
-          Providing scholarships, school supplies, and tutoring for underprivileged students. We believe education is the key to unlocking potential and breaking the cycle of poverty.
-        </p>
-      </article>
-      <article class="program-card">
-        <img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=400&q=80" alt="Community Outreach" loading="lazy" />
-        <h3>Community Outreach</h3>
-        <p>
-          Organizing workshops, seminars, and events that promote mental health, leadership, and essential life skills. We engage with the community to create positive change.
-        </p>
-      </article>
-      <article class="program-card">
-        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80" alt="Youth Empowerment Seminars" loading="lazy" />
-        <h3>Youth Empowerment Seminars</h3>
-        <p>
-          Regular seminars and bootcamps on entrepreneurship, digital literacy, and self-confidence, tailored to inspire and equip our youth for the future.
-        </p>
-      </article>
-    </div>
-  </section>
-  <section id="contact" class="card-section">
-    <h2 class="section-title">Contact Us</h2>
-    <div class="contact-info">
-      <p><strong>Location:</strong> Suleja, Abuja, Nigeria</p>
-      <p><strong>Phone:</strong> <a href="tel:+2348168795769">+2348168795769</a></p>
-      <p><strong>Email:</strong> <a href="mailto:themindbuildingfoundation@gmail.com">themindbuildingfoundation@gmail.com</a></p>
-    </div>
-    <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you for contacting us!'); this.reset();">
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" autocomplete="name" required />
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" autocomplete="email" required />
-      <label for="message">Message</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
-      <button type="submit" class="btn">Send Message <i class="fa-solid fa-paper-plane"></i></button>
-    </form>
-  </section>
-  <section id="donate" class="card-section">
-    <h2>Support Our Mission</h2>
-    <p>
-      Your donation helps us continue to empower and support the youth of Suleja and beyond. Every contribution makes a difference!
-    </p>
-    <div class="donate-methods">
-      <article class="donate-card">
-        <h3>Bank Transfer</h3>
-        <p>
-          <strong>Account Name:</strong> The Mind Building Youth Care Foundation<br />
-          <strong>Bank:</strong> Fidelity Bank Plc<br />
-          <strong>Account Number:</strong> 5601379480
-        </p>
-      </article>
-      <article class="donate-card">
-        <h3>Contact Us for Other Ways to Give</h3>
-        <p>
-          Email: <span style="display:inline-block;word-break:break-word;">themindbuildingfoundation@gmail.com</span><br />
-          Phone: <a href="tel:+2348168795769">+2348168795769</a>
-        </p>
-      </article>
-    </div>
-    <a href="#contact" class="btn btn-contact">Contact for Partnership</a>
-  </section>
+<!-- Home -->
+<section id="home">
+<h1>Welcome to The Mind Building Youth Care Foundation</h1>
+<p>
+Empowering the youth of Suleja, Abuja, Nigeria to build brighter futures through education, mentorship, and care.
+</p>
+<div class="btn-group">
+<a href="#donate" class="btn">Donate Now <i class="fa-solid fa-hand-holding-heart"></i></a>
+<a href="#programs" class="btn">Our Programs <i class="fa-solid fa-people-group"></i></a>
+</div>
+</section>
+<!-- About Us -->
+<section id="about" class="card-section">
+<h2 class="section-title">About Us</h2>
+<p>
+<strong>The Mind Building Youth Care Foundation</strong> is a non-profit organization located in Suleja, Abuja, Nigeria. Our mission is to nurture and empower young minds by providing support, education, and opportunities for youth to realize their full potential.
+</p>
+<ul>
+<li>Founded by <strong>Mrs. Sarah Eseyi Oriowo</strong>, a passionate advocate for youth development.</li>
+<li>Supported by her husband, <strong>Mr. Seun Oriowo</strong>.</li>
+<li>Driven by the belief that every young person deserves a chance to succeed.</li>
+<li>Committed to fostering a future where every youth is equipped with knowledge, skills, and confidence.</li>
+</ul>
+<div class="profile">
+<img src="s.jpg" alt="Portrait of Mrs. Sarah Eseyi Oriowo" class="profile-img" loading="lazy"/>
+<div class="profile-details">
+<h3>Mrs. Sarah Eseyi Oriowo</h3>
+<p><strong>Chief Executive Officer (CEO) & Founder</strong><br />Married to Mr. Seun Oriowo</p>
+<p>
+Mrs. Sarah is dedicated to youth empowerment and community development. Her vision is to create a support system where young people can thrive, learn, and lead.
+</p>
+</div>
+</div>
+</section>
+<!-- Our Programs -->
+<section id="programs" class="card-section">
+<h2 class="section-title">Our Programs</h2>
+<div class="program-cards">
+<article class="program-card">
+<img src="https://womenfirstjobs.com/upload/blog/1700222448Blog-Picture-(500-x-350-px).png" alt="Mentorship" />
+<h3>Mentorship Initiatives</h3>
+<p>
+Pairing youth with experienced mentors to guide their personal and professional growth. Our mentorship programs focus on leadership, career guidance, and life skills.
+</p>
+</article>
+<article class="program-card">
+<img src="https://madison365.com/wp-content/uploads/2016/01/africanamericancaregiver.jpg" alt="Caregivers Outreach" />
+<h3>Caregivers Outreach</h3>
+<p>
+We support caregivers and families with resources, training, and emotional support to help them provide the best care for youth in need.
+</p>
+</article>
+<article class="program-card">
+<img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80" alt="widows Visitation" />
+<h3>widows Visitation</h3>
+<p>
+Regular seminars and bootcamps on entrepreneurship, digital literacy, and self-confidence, tailored to inspire and equip our youth for the future.
+</p>
+</article>
+<article class="program-card">
+<img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=400&q=80" alt="Educational Support" />
+<h3>Educational Support</h3>
+<p>
+Providing scholarships, school supplies, and tutoring for underprivileged students. We believe education is the key to unlocking potential and breaking the cycle of poverty.
+</p>
+</article>
+<article class="program-card">
+<img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=400&q=80" alt="Community Outreach" />
+<h3>Community Outreach</h3>
+<p>
+Organizing workshops, seminars, and events that promote mental health, leadership, and essential life skills. We engage with the community to create positive change.
+</p>
+</article>
+<article class="program-card">
+<img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80" alt="Youth Empowerment Seminars" />
+<h3>Youth Empowerment Seminars</h3>
+<p>
+Regular seminars and bootcamps on entrepreneurship, digital literacy, and self-confidence, tailored to inspire and equip our youth for the future.
+</p>
+</article>
+</div>
+</section>
+<!-- Contact -->
+<section id="contact" class="card-section">
+<h2 class="section-title">Contact Us</h2>
+<div class="contact-info">
+<p><strong>Location:</strong> Suleja, Abuja, Nigeria</p>
+<p><strong>Phone:</strong> <a href="tel:+2348168795769">+2348168795769</a></p>
+<p><strong>Email:</strong> <a href="mailto:themindbuildingfoundation@gmail.com">themindbuildingfoundation@gmail.com</a></p>
+</div>
+<form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you for contacting us!'); this.reset();">
+<label for="name">Name</label>
+<input type="text" id="name" name="name" required />
+<label for="email">Email</label>
+<input type="email" id="email" name="email" required />
+<label for="message">Message</label>
+<textarea id="message" name="message" rows="5" required></textarea>
+<button type="submit" class="btn">Send Message <i class="fa-solid fa-paper-plane"></i></button>
+</form>
+</section>
+<!-- Donate -->
+<section id="donate" class="card-section">
+<h2>Support Our Mission</h2>
+<p>
+Your donation helps us continue to empower and support the youth of Suleja and beyond. Every contribution makes a difference!
+</p>
+<div class="donate-methods">
+<article class="donate-card">
+<h3>Bank Transfer</h3>
+<p>
+<strong>Account Name:</strong> The Mind Building Youth Care Foundation<br />
+<strong>Bank:</strong> Fidelity Bank Plc<br />
+<strong>Account Number:</strong> 5601379480
+</p>
+</article>
+<article class="donate-card">
+<h3>Contact Us for Other Ways to Give</h3>
+<p>
+Email: <span style="display:inline-block;word-break:break-all;">themindbuildingfoundation@gmail.com</span><br />
+Phone: <a href="tel:+2348168795769">+2348168795769</a>
+</p>
+</article>
+</div>
+<a href="#contact" class="btn btn-contact">Contact for Partnership</a>
+</section>
 </main>
 <footer>
-  © 2025 The Mind Building Youth Care Foundation. All rights reserved.<br />
-  Suleja, Abuja, Nigeria | +2348168795769 | themindbuildingfoundation@gmail.com
+© 2025 The Mind Building Youth Care Foundation. All rights reserved.<br />
+Suleja, Abuja, Nigeria | +2348168795769 | themindbuildingfoundation@gmail.com
 </footer>
 <div class="social-float">
-  <a class="whatsapp" href="https://wa.me/+2348168795769" target="_blank" rel="noopener" title="WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-  <a class="instagram" href="https://www.instagram.com/themindbuildingfoundation/" target="_blank" rel="noopener" title="Instagram">
-    <i class="fab fa-instagram"></i>
-  </a>
-  <a class="facebook" href="https://www.facebook.com/TheMindBuildingForum" target="_blank" rel="noopener" title="Facebook">
-    <i class="fab fa-facebook-f"></i>
-  </a>
+<a class="whatsapp" href="https://wa.me/+2348168795769" target="_blank" rel="noopener" title="WhatsApp">
+<i class="fab fa-whatsapp"></i>
+</a>
+<a class="instagram" href="https://www.instagram.com/themindbuildingfoundation/" target="_blank" rel="noopener" title="Instagram">
+<i class="fab fa-instagram"></i>
+</a>
+<a class="facebook" href="https://www.facebook.com/TheMindBuildingForum" target="_blank" rel="noopener" title="Facebook">
+<i class="fab fa-facebook-f"></i>
+</a>
 </div>
 <script>
-  // Navigation active link management
-  const navLinks = document.querySelectorAll('nav a');
-  navLinks.forEach(link => {
-    link.addEventListener('click', e => {
-      navLinks.forEach(l => l.classList.remove('active'));
-      e.target.classList.add('active');
-      // Close mobile nav on link click
-      if (window.innerWidth <= 768) {
-        nav.classList.add('mobile-hidden');
-        hamburger.setAttribute('aria-expanded', 'false');
-      }
-    });
-  });
-
-  // Dark mode toggle with persistence
-  const toggleBtn = document.getElementById('toggleMode');
-  let darkMode = false;
-  function setMode(dark) {
-    document.body.classList.toggle('dark', dark);
-    toggleBtn.textContent = dark ? '🌙' : '🌞';
-    darkMode = dark;
-    localStorage.setItem('darkMode', dark);
-  }
-  toggleBtn.addEventListener('click', () => setMode(!darkMode));
-  // Initialize mode from localStorage
-  setMode(localStorage.getItem('darkMode') === 'true');
-
-  // Hamburger menu toggle
-  const hamburger = document.getElementById('hamburger');
-  const nav = document.querySelector('nav');
-  hamburger.addEventListener('click', () => {
-    const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
-    hamburger.setAttribute('aria-expanded', !expanded);
-    nav.classList.toggle('mobile-hidden');
-  });
-  hamburger.addEventListener('keydown', e => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      hamburger.click();
-    }
-  });
+const navLinks = document.querySelectorAll('nav a');
+navLinks.forEach(link => {
+link.addEventListener('click', e => {
+navLinks.forEach(l => l.classList.remove('active'));
+e.target.classList.add('active');
+});
+});
+const toggleBtn = document.getElementById('toggleMode');
+let darkMode = false;
+function setMode(dark) {
+document.body.classList.toggle('dark', dark);
+toggleBtn.textContent = dark ? '🌙' : '🌞';
+darkMode = dark;
+}
+toggleBtn.addEventListener('click', () => setMode(!darkMode));
 </script>
 </body>
 </html>
