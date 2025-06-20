@@ -131,7 +131,7 @@
     color: var(--white);
   }
 
-  /* Hamburger menu for main nav */
+  /* Hamburger menu */
   #hamburger {
     display: none;
     flex-direction: column;
@@ -217,49 +217,18 @@
     color: var(--white);
     box-shadow: 0 6px 18px rgba(75, 0, 130, 0.1);
   }
-
-  /* Section title as collapsible button on mobile */
-  .section-toggle {
-    display: none;
-    width: 100%;
-    background: none;
-    border: none;
-    font-weight: 700;
-    font-size: 1.8rem;
+  h2.section-title {
+    font-size: 2.1rem;
+    margin-bottom: 1rem;
     color: var(--dark-brown);
     border-bottom: 3px solid var(--light-brown);
-    padding: 0.5rem 0;
-    text-align: left;
-    cursor: pointer;
-    transition: color var(--transition), border-color var(--transition);
+    padding-bottom: 0.3rem;
+    max-width: max-content;
   }
-  .section-toggle:focus {
-    outline: 3px solid var(--indigo);
-  }
-  body.dark .section-toggle {
+  body.dark h2.section-title {
     color: var(--light-brown);
     border-color: var(--indigo);
   }
-  /* Icon for toggle */
-  .section-toggle .icon {
-    float: right;
-    transition: transform 0.3s ease;
-  }
-  .section-toggle[aria-expanded="true"] .icon {
-    transform: rotate(180deg);
-  }
-
-  /* Content sections default visible */
-  .section-content {
-    padding-top: 1rem;
-  }
-
-  /* Collapsible content for mobile */
-  .collapsed {
-    display: none;
-  }
-
-  /* Card section styling */
   section.card-section {
     background: var(--gray-light);
     border-radius: 15px;
@@ -272,63 +241,333 @@
     background: var(--gray-dark);
     color: #fff;
   }
+  #about ul {
+    font-size: 1.07rem;
+    line-height: 1.7;
+    max-width: 900px;
+    margin: 0 auto 1.5rem;
+    list-style: disc inside;
+    padding-left: 0;
+  }
+  #about ul li {
+    margin-bottom: 0.7rem;
+  }
+  .profile {
+    display: flex;
+    max-width: 900px;
+    margin: 2rem auto 0;
+    gap: 2rem;
+    align-items: center;
+    flex-wrap: wrap;
+    background: var(--gray-light);
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 4px 14px rgba(160, 82, 45, 0.10);
+  }
+  body.dark .profile {
+    background: #232323;
+    color: #fff;
+  }
+  .profile-img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--indigo);
+    box-shadow: 0 0 12px var(--indigo);
+    flex-shrink: 0;
+  }
+  body.dark .profile-img {
+    border-color: var(--light-brown);
+    box-shadow: 0 0 12px var(--light-brown);
+  }
+  .profile-details h3 {
+    margin-top: 0;
+    margin-bottom: 0.3rem;
+    font-size: 1.6rem;
+    color: var(--indigo);
+  }
+  body.dark .profile-details h3 {
+    color: var(--light-brown);
+  }
+  .profile-details p {
+    margin: 0.3rem 0;
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+  #programs .program-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .program-card {
+    background: var(--gray-light);
+    padding: 1.8rem 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(160, 82, 45, 0.10);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: var(--black);
+    transition: background var(--transition), color var(--transition);
+  }
+  body.dark .program-card {
+    background: var(--gray-dark);
+    color: #fff;
+  }
+  .program-card h3 {
+    margin-top: 0;
+    color: var(--dark-brown);
+    font-size: 1.25rem;
+    margin-bottom: 0.8rem;
+  }
+  body.dark .program-card h3 {
+    color: var(--light-brown);
+  }
+  .program-card p {
+    flex-grow: 1;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--black);
+  }
+  body.dark .program-card p {
+    color: #fff;
+  }
+  .program-card img {
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+  }
+  #contact {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  #contact .contact-info p {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+  }
+  #contact .contact-info a {
+    font-weight: 600;
+    word-break: break-word;
+  }
+  .contact-form {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .contact-form label {
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    border: 2px solid var(--gray-medium);
+    font-size: 1rem;
+    resize: vertical;
+    background: var(--white);
+    color: var(--black);
+    transition: border-color 0.3s;
+  }
+  body.dark .contact-form input,
+  body.dark .contact-form textarea {
+    background: var(--gray-dark);
+    color: #fff;
+    border-color: #555;
+  }
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    border-color: var(--indigo);
+    outline: none;
+  }
+  .contact-form button {
+    background-color: var(--light-brown);
+    color: var(--white);
+    font-weight: 700;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s;
+    align-self: flex-start;
+    box-shadow: 0 4px 14px rgba(160, 82, 45, 0.15);
+  }
+  .contact-form button:hover,
+  .contact-form button:focus {
+    background-color: var(--indigo);
+  }
+  #donate {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  #donate h2 {
+    font-size: 2.1rem;
+    margin-bottom: 1rem;
+    color: var(--dark-brown);
+  }
+  body.dark #donate h2 {
+    color: var(--light-brown);
+  }
+  #donate p {
+    font-size: 1.15rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+  .donate-methods {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  .donate-card {
+    background: var(--gray-light);
+    padding: 1.5rem 1.2rem;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(160, 82, 45, 0.10);
+    width: 320px;
+    word-break: break-word;
+    color: var(--black);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: background var(--transition), color var(--transition);
+  }
+  body.dark .donate-card {
+    background: var(--gray-dark);
+    color: #fff;
+  }
+  .donate-card h3 {
+    margin-top: 0;
+    color: var(--indigo);
+    margin-bottom: 1rem;
+  }
+  body.dark .donate-card h3 {
+    color: var(--light-brown);
+  }
+  .donate-card p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--black);
+  }
+  body.dark .donate-card p {
+    color: #fff;
+  }
+  #donate .btn-contact {
+    background-color: var(--light-brown);
+    color: var(--white);
+    font-weight: 700;
+    padding: 1rem 2.5rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1.15rem;
+    box-shadow: 0 4px 14px rgba(160, 82, 45, 0.13);
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s;
+  }
+  #donate .btn-contact:hover,
+  #donate .btn-contact:focus {
+    background-color: var(--indigo);
+  }
+  footer {
+    background: var(--white);
+    color: #666;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    border-top: 1px solid var(--gray-medium);
+    font-size: 0.9rem;
+    user-select: none;
+  }
+  body.dark footer {
+    background: var(--gray-dark);
+    color: #ccc;
+    border-top: 1px solid #444;
+  }
+  .social-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 1100;
+  }
+  .social-float a {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 28px;
+    line-height: 1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: background 0.3s, box-shadow 0.3s;
+  }
+  .social-float .whatsapp {
+    background: var(--whatsapp);
+  }
+  .social-float .facebook {
+    background: var(--facebook);
+  }
+  .social-float .instagram {
+    background: linear-gradient(45deg, #f9ce34 0%, #ee2a7b 50%, #6228d7 100%);
+  }
+  .social-float a:hover,
+  .social-float a:focus {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22);
+  }
 
-  /* Responsive typography and layout */
-  @media (max-width: 768px) {
+  /* Responsive styles */
+  @media (max-width: 992px) {
+    main {
+      padding: 0 1rem;
+    }
     #home h1 {
-      font-size: 2rem;
+      font-size: 2.4rem;
     }
     #home p {
-      font-size: 1rem;
+      font-size: 1.15rem;
     }
-    .btn {
-      width: 100%;
-      justify-content: center;
+    .btn-group {
+      flex-direction: column;
+      gap: 1rem;
     }
     nav {
+      flex-wrap: wrap;
       gap: 1rem;
     }
     nav a {
-      padding: 0.5rem 0.8rem;
-      font-size: 0.95rem;
+      padding: 0.6rem 1rem;
+      font-size: 1rem;
     }
-    main {
-      margin: 2rem 1rem 3rem;
-      padding: 0;
-    }
-    /* Show collapsible buttons for section titles */
-    .section-toggle {
-      display: block;
-    }
-    /* Hide default section titles on mobile */
-    h2.section-title {
-      display: none;
-    }
-    /* Initially collapse all section content except #about */
-    .section-content.collapsed {
-      display: none;
-    }
-    /* Style profile for mobile */
     .profile {
       flex-direction: column;
       text-align: center;
-      padding: 1rem 0;
     }
     .profile-img {
-      width: 120px;
-      height: 120px;
-      margin: 0 auto 1rem;
+      margin: 0 auto;
     }
-    .profile-details h3 {
-      font-size: 1.3rem;
-    }
-    .program-cards {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
+    .profile-details {
+      width: 100%;
     }
     .program-card img {
       height: auto;
-      max-height: 160px;
+      max-height: 180px;
+    }
+    .program-cards {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
     .donate-methods {
       flex-direction: column;
@@ -337,13 +576,63 @@
     .donate-card {
       width: 100%;
     }
+    .contact-form input,
+    .contact-form textarea {
+      font-size: 1rem;
+    }
+    .contact-form button {
+      width: 100%;
+      font-size: 1.15rem;
+    }
+  }
+  @media (max-width: 768px) {
+    #home h1 {
+      font-size: 2.2rem;
+    }
+    #home p {
+      font-size: 1.1rem;
+    }
+    .profile {
+      flex-direction: column;
+      text-align: center;
+    }
+    .profile-details h3 {
+      font-size: 1.4rem;
+    }
+    .program-card {
+      padding: 1.2rem 1rem;
+    }
+    .donate-methods {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    nav {
+      gap: 1rem;
+    }
   }
   @media (max-width: 576px) {
     #home h1 {
-      font-size: 1.8rem;
+      font-size: 2rem;
     }
     #home p {
+      font-size: 1rem;
+    }
+    nav {
+      justify-content: center;
+    }
+    nav a {
+      padding: 0.5rem 0.8rem;
       font-size: 0.95rem;
+    }
+    .btn {
+      width: 100%;
+      justify-content: center;
+    }
+    .profile {
+      padding: 1rem;
+    }
+    .program-card {
+      padding: 1rem;
     }
   }
 </style>
@@ -379,12 +668,8 @@
       <a href="#programs" class="btn">Our Programs <i class="fa-solid fa-people-group"></i></a>
     </div>
   </section>
-
-  <!-- About Us Section -->
-  <button class="section-toggle" aria-expanded="true" aria-controls="about-content" id="about-toggle">
-    About Us <span class="icon"><i class="fa-solid fa-chevron-down"></i></span>
-  </button>
-  <section id="about" class="card-section section-content" aria-labelledby="about-toggle">
+  <section id="about" class="card-section">
+    <h2 class="section-title">About Us</h2>
     <p>
       <strong>The Mind Building Youth Care Foundation</strong> is a non-profit organization located in Suleja, Abuja, Nigeria. Our mission is to nurture and empower young minds by providing support, education, and opportunities for youth to realize their full potential.
     </p>
@@ -405,12 +690,8 @@
       </div>
     </div>
   </section>
-
-  <!-- Our Programs Section -->
-  <button class="section-toggle" aria-expanded="true" aria-controls="programs-content" id="programs-toggle">
-    Our Programs <span class="icon"><i class="fa-solid fa-chevron-down"></i></span>
-  </button>
-  <section id="programs" class="card-section section-content" aria-labelledby="programs-toggle">
+  <section id="programs" class="card-section">
+    <h2 class="section-title">Our Programs</h2>
     <div class="program-cards">
       <article class="program-card">
         <img src="https://womenfirstjobs.com/upload/blog/1700222448Blog-Picture-(500-x-350-px).png" alt="Mentorship" loading="lazy" />
@@ -456,12 +737,8 @@
       </article>
     </div>
   </section>
-
-  <!-- Contact Section -->
-  <button class="section-toggle" aria-expanded="true" aria-controls="contact-content" id="contact-toggle">
-    Contact Us <span class="icon"><i class="fa-solid fa-chevron-down"></i></span>
-  </button>
-  <section id="contact" class="card-section section-content" aria-labelledby="contact-toggle">
+  <section id="contact" class="card-section">
+    <h2 class="section-title">Contact Us</h2>
     <div class="contact-info">
       <p><strong>Location:</strong> Suleja, Abuja, Nigeria</p>
       <p><strong>Phone:</strong> <a href="tel:+2348168795769">+2348168795769</a></p>
@@ -477,12 +754,8 @@
       <button type="submit" class="btn">Send Message <i class="fa-solid fa-paper-plane"></i></button>
     </form>
   </section>
-
-  <!-- Donate Section -->
-  <button class="section-toggle" aria-expanded="true" aria-controls="donate-content" id="donate-toggle">
-    Support Our Mission <span class="icon"><i class="fa-solid fa-chevron-down"></i></span>
-  </button>
-  <section id="donate" class="card-section section-content" aria-labelledby="donate-toggle">
+  <section id="donate" class="card-section">
+    <h2>Support Our Mission</h2>
     <p>
       Your donation helps us continue to empower and support the youth of Suleja and beyond. Every contribution makes a difference!
     </p>
@@ -521,7 +794,6 @@
     <i class="fab fa-facebook-f"></i>
   </a>
 </div>
-
 <script>
   // Navigation active link management
   const navLinks = document.querySelectorAll('nav a');
@@ -550,7 +822,7 @@
   // Initialize mode from localStorage
   setMode(localStorage.getItem('darkMode') === 'true');
 
-  // Hamburger menu toggle for main nav
+  // Hamburger menu toggle
   const hamburger = document.getElementById('hamburger');
   const nav = document.querySelector('nav');
   hamburger.addEventListener('click', () => {
@@ -562,55 +834,6 @@
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
       hamburger.click();
-    }
-  });
-
-  // Section toggle buttons for collapsible sections on mobile
-  const sectionToggles = document.querySelectorAll('.section-toggle');
-  sectionToggles.forEach(toggle => {
-    const targetId = toggle.getAttribute('aria-controls');
-    const content = document.getElementById(targetId);
-    // Start with all expanded except About (optional)
-    if (window.innerWidth <= 768) {
-      if (toggle.id !== 'about-toggle') {
-        content.classList.add('collapsed');
-        toggle.setAttribute('aria-expanded', 'false');
-      }
-    }
-    toggle.addEventListener('click', () => {
-      const expanded = toggle.getAttribute('aria-expanded') === 'true';
-      toggle.setAttribute('aria-expanded', !expanded);
-      if (expanded) {
-        content.classList.add('collapsed');
-      } else {
-        content.classList.remove('collapsed');
-      }
-    });
-  });
-
-  // Optional: Adjust on window resize
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 768) {
-      // Show all sections expanded on desktop/tablet
-      sectionToggles.forEach(toggle => {
-        const targetId = toggle.getAttribute('aria-controls');
-        const content = document.getElementById(targetId);
-        content.classList.remove('collapsed');
-        toggle.setAttribute('aria-expanded', 'true');
-      });
-      nav.classList.remove('mobile-hidden');
-      hamburger.setAttribute('aria-expanded', 'false');
-    } else {
-      // Collapse all except About on mobile
-      sectionToggles.forEach(toggle => {
-        const targetId = toggle.getAttribute('aria-controls');
-        const content = document.getElementById(targetId);
-        if (toggle.id !== 'about-toggle') {
-          content.classList.add('collapsed');
-          toggle.setAttribute('aria-expanded', 'false');
-        }
-      });
-      nav.classList.add('mobile-hidden');
     }
   });
 </script>
