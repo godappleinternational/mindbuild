@@ -42,6 +42,13 @@ header {
   display: flex; justify-content: space-between; align-items: center;
   padding: 1rem 2rem; box-shadow: 0 2px 8px rgba(160, 82, 45, 0.08); z-index: 1000;
   transition: background var(--transition);
+  <!-- Add inside header, before nav -->
+<div id="hamburger" tabindex="0" aria-label="Toggle navigation menu" role="button" aria-expanded="false">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
 }
 body.dark header { background: var(--gray-dark); }
 .logo {
@@ -241,8 +248,11 @@ body.dark footer { background: #232323; color: #ccc; border-top: 1px solid #444;
   .program-card { padding: 1.2rem 1rem; }
   .donate-methods { flex-direction: column; gap: 1.5rem; }
   nav { gap: 1rem; }
+  .btn-contact {
+    width: 100%; /* Added for better tap area */
+  }
+}
 
-  /* Responsive improvements */
 @media (max-width: 992px) {
   main {
     padding: 0 1rem;
@@ -324,6 +334,40 @@ body.dark footer { background: #232323; color: #ccc; border-top: 1px solid #444;
     padding: 1rem;
   }
 }
+/* Add to your CSS */
+#hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  width: 30px;
+  height: 22px;
+}
+#hamburger span {
+  height: 4px;
+  background: var(--dark-brown);
+  border-radius: 2px;
+  transition: 0.3s;
+}
+@media (max-width: 768px) {
+  nav {
+    display: none;
+    flex-direction: column;
+    background: var(--white);
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+  }
+  #hamburger {
+    display: flex;
+  }
+  nav.active {
+    display: flex;
+  }
+}
+
 
 }
 </style>
@@ -502,6 +546,34 @@ function setMode(dark) {
   darkMode = dark;
 }
 toggleBtn.addEventListener('click', () => setMode(!darkMode));
+  // Add to your existing script
+const hamburger = document.getElementById('hamburger');
+const nav = document.querySelector('nav');
+
+hamburger.addEventListener('click', () => {
+  const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
+  hamburger.setAttribute('aria-expanded', !expanded);
+  nav.classList.toggle('active');
+});
+hamburger.addEventListener('keydown', e => {
+  if (e.key === 'Enter' || e.key === ' ') {
+    e.preventDefault();
+    hamburger.click();
+  }
+});
+// On page load
+const savedMode = localStorage.getItem('darkMode') === 'true';
+setMode(savedMode);
+
+// Update setMode function
+function setMode(dark) {
+  document.body.classList.toggle('dark', dark);
+  toggleBtn.textContent = dark ? '🌙' : '🌞';
+  darkMode = dark;
+  localStorage.setItem('darkMode', dark);
+}
+
+  
 </script>
 </body>
 </html>
